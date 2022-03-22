@@ -1,0 +1,208 @@
+#nav-header {
+    position: fixed;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: #fff;
+    z-index: 10;
+    box-shadow: 0;
+    transition-duration: 0.5s;
+}
+.header-shadow {
+    box-shadow: -21.213px 21.213px 30px 0px rgb(158 158 158 / 30%);
+    transition-duration: 0.5s;
+}
+#nav-header > .nav-outer-wrapper {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 20px ;
+    padding-bottom: 20px;
+}
+.nav-outer-wrapper > .nav-container {
+    justify-content: space-between;
+    line-height: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.nav-main {
+    gap: 23px;
+}
+.nav-main a {
+    display: grid;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: #222;
+    text-transform: capitalize;
+}
+.nav-main i {
+    display: flex;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 100;
+    border: none;
+    background-color: #fff;;
+}
+.nav-main > a, .nav-main > * > * > a {/* nav-main > div > div > a */
+    text-transform: uppercase;
+}
+.nav-main a:hover, #nav-main:active, .nav-main .nav-current {
+    color: #8490ff;
+}
+.nav-flyout {
+    display: flex;
+    position: relative;
+}
+.nav-submenu {       
+    display: flex;
+    visibility: hidden;
+    position: absolute;
+    flex-direction: column;
+    top: 0px;
+    right: 160px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 30px rgb(127 137 161 / 25%);
+    transition: .3s ease .3s;
+}
+.nav-main .nav-flyout:hover > .nav-submenu {
+    visibility: visible;
+}
+/*first level dropdown start*/
+.nav-main > .nav-flyout  > .nav-submenu {
+    top: 50px;
+    right: 0;
+}
+.nav-main > .nav-flyout > .nav-subtitle >  a {
+    grid-template-columns: auto 20px;
+}
+.nav-main > .nav-flyout > .nav-subtitle > a > span {
+    grid-column-start: 1;
+}
+.nav-main > .nav-flyout > .nav-subtitle >  a > i {
+    grid-column-start: 2;
+}
+/*first level dropdown end*/
+.nav-flyout > .nav-subtitle > a {
+    grid-template-columns: 20px 120px 10px 10px;
+}
+.nav-submenu > * > a {
+    grid-template-columns: 20px 140px;
+}
+.nav-flyout > * > a > span, .nav-submenu > * > a > span {
+    grid-column-start: 2;
+}
+.nav-flyout > * > a > i, .nav-submenu > * > a > i {
+    grid-column-start: 3;
+}
+.nav-main .nav-flyout .submenu-left > .nav-submenu {
+    right: 160px;
+}
+.nav-main .nav-flyout .submenu-right > .nav-submenu {
+    right: -160px;
+}
+
+
+
+
+ /* ~~~~~~~~~Sidebar~~~~~~~~~ */
+
+#sidebar-container {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    top:0;
+    left: 0;
+    z-index: 13;
+    gap: 20px;
+    width: 260px;
+    height: 100vh;
+    padding-top: 25px;
+    opacity: 0.95;
+    background-color: black;
+}
+#sidebar-container > * {
+    width: 240px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+.sidebar-dropdown {
+    padding-bottom: 5px;
+}
+.sidebar-submenu {
+    position: relative;
+    height: 0;
+    padding-top: 5px;
+    padding-bottom: 0;
+    /* border: 2px solid green; */
+}
+.sidebar-submenu-open {
+    height: fit-content;
+    /* height: 80px; */
+    transition-duration: 2s;
+}
+.sidebar-submenu > * {
+    padding: 5px 0 0 30px;
+}
+#sidebar-container .nav-current {
+    color: #8490ff;
+}
+#sidebar-container a {
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+}
+.sidebar-subtitle > a {
+    display: grid;
+    grid-template-columns: auto 20px;
+}
+
+#sidebar-container .sidebar-nav-submenu a {
+    text-transform: capitalize;
+}
+.sidebar-subtitle > a > span {
+    grid-column-start: 1;
+}
+.sidebar-subtitle button {
+    grid-column-start: 2;
+    color: #fff;
+    border: none;
+    background-color: black;
+}
+/*~~~~~~~~~Toggle nav icons~~~~~~~~~*/
+#sidebar-main-on {
+    display: none;
+    position: fixed;
+    top: 30px;
+    right: 35px;
+    z-index: 12;
+    transform: scale(1.5,1.5); 
+}
+#sidebar-main-off {
+    display: none;
+    position: fixed;
+    z-index: 12;
+    height: 100vh;
+    width: calc(100% - 260px);
+    margin-left: 260px;
+    padding-left: calc(100% - 310px);
+    padding-top: 20px;
+    font-size: 30px;
+    font-weight: 100;
+    opacity: 0.7;
+    background-color: rgb(56, 51, 51);
+}
+@media (max-width: 991px) {
+    #sidebar-main-on {
+        display: block;
+    }
+}
+@media (min-width: 991px) {
+    #sidebar-main-on {
+        visibility: hidden;
+    }
+}
+
+
+/* header end */
